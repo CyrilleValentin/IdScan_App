@@ -1,7 +1,7 @@
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
-import 'package:w3b_app/pages/homePage.dart';
-import 'package:w3b_app/pages/scan.dart';
+import 'package:w3b_app/onBoading/onBoarding.dart';
+
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const ScanPage(),
+      home:  const OnBoarding(),
     );
   }
 }
