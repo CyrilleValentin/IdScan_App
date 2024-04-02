@@ -19,7 +19,7 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   late W3MService _w3mService;
-  String address = "";
+  
 
   @override
   void initState() {
@@ -71,6 +71,7 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   void dispose() {
     super.dispose();
+    _w3mService.disconnect();
   }
 
   @override

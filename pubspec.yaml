@@ -47,6 +47,10 @@ dependencies:
   quickalert: ^1.1.0
   toastification: ^1.2.1
   vibration: ^1.8.4
+  google_fonts: ^6.0.0
+  iconsax: ^0.0.8
+  eva_icons_flutter: ^3.1.0
+ 
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +78,7 @@ flutter:
   assets:
     - lotties/
     - assets/
+    
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -87,10 +92,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Pacifico
+      fonts:
+        - asset: fonts/Pacifico-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

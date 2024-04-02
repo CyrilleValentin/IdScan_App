@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:w3b_app/onBoading/onBoarding.dart';
-import 'package:w3b_app/pages/homePage.dart';
+import 'package:w3b_app/pages/profile.dart';
 
 
 void main() {
@@ -21,7 +21,9 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:  const OnBoarding(),
+      
     );
   }
 }
+
 

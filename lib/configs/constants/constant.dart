@@ -6,6 +6,7 @@ import 'package:web3dart/web3dart.dart';
 const String loti1 = "lotties/loti1.json";
 const String loti2 = "lotties/loti2.json";
 const String abi = "assets/contract_abi.json";
+const String pacifico = "fonts/Pacifico-Regular.ttf";
 
 // Replace YOUR_INFURA_PROJECT_ID with your Infura project ID
 String infuraProjectId = '205071a497c2419685eba87dd2214653';
