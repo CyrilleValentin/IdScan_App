@@ -1,7 +1,11 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:lottie/lottie.dart';
 import 'package:w3b_app/configs/constants/constant.dart';
+import 'package:w3b_app/configs/routes/navigator.dart';
+import 'package:w3b_app/pages/scan.dart';
 import 'package:web3modal_flutter/web3modal_flutter.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -13,6 +17,8 @@ class OnBoarding extends StatefulWidget {
 
 class _OnBoardingState extends State<OnBoarding> {
   late W3MService _w3mService;
+  String address = "";
+  
 
   @override
   void initState() {
@@ -36,12 +42,22 @@ class _OnBoardingState extends State<OnBoarding> {
         ),
       ),
     );
+
     await _w3mService.init();
+    // Subscribe to modal connect event
+   _w3mService.onModalConnect.subscribe((event) {
+    print('address=${event!.session.address}');
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      navigatorDelete(context, const ScanPage());
+    });
+  });
   }
-    @override
+
+  @override
   void dispose() {
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -53,11 +69,11 @@ class _OnBoardingState extends State<OnBoarding> {
           Color.fromARGB(255, 28, 125, 96),
           Color.fromARGB(255, 132, 93, 239),
         ], transform: GradientRotation(12)),
-       // finishButtonText: 'Register',
+        // finishButtonText: 'Register',
         // onFinish: () {
         //   navigatorDelete(context, const ScanPage());
         // },
-       
+
         skipTextButton: const Text('Skip'),
         background: [
           Lottie.asset(loti2,
@@ -76,7 +92,7 @@ class _OnBoardingState extends State<OnBoarding> {
         pageBodies: [
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            child:  const Column(
+            child: const Column(
               children: <Widget>[
                 SizedBox(
                   height: 480,
@@ -86,13 +102,12 @@ class _OnBoardingState extends State<OnBoarding> {
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
-                
               ],
             ),
           ),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            child:  Column(
+            child: Column(
               children: <Widget>[
                 const SizedBox(
                   height: 480,
@@ -102,17 +117,20 @@ class _OnBoardingState extends State<OnBoarding> {
                   textAlign: TextAlign.center,
                   style: TextStyle(color: Colors.white, fontSize: 15),
                 ),
-                 const SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
-                W3MConnectWalletButton(service: _w3mService),
+                W3MConnectWalletButton(
+                  service: _w3mService,
+                ),
               ],
             ),
           ),
         ],
-      ),
+      ),  
     );
   }
+  
 }
 
 const _chainId = "11155111";

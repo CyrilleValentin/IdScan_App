@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:w3b_app/onBoading/onBoarding.dart';
+import 'package:w3b_app/pages/homePage.dart';
 
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  const OnBoarding(),
+      home:  const HomePage(),
     );
   }
 }
