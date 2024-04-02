@@ -24,7 +24,7 @@ Future<String> loadContractABI() async {
 }
 
 
-Future<void> interactWithContract() async {
+Future<dynamic> interactWithContract(String address) async {
   // Chargez l'ABI du contrat intelligent
   String abiString = await loadContractABI();
 
@@ -41,9 +41,16 @@ final ethClient = Web3Client('https://sepolia.infura.io/v3/$infuraProjectId', cl
   final result = await ethClient.call(
     contract: contract,
     function: contract.function('checkisVerifier'),
-    params: [EthereumAddress.fromHex('0x8298F4605f9893F80966826B8a301c963d0FC514')],
+    params: [EthereumAddress.fromHex(address)],
   );
 
   // Traitez le résultat de l'appel de fonction
-  print(result);
+  return result;
+}
+
+  void vibrate() {
+  HapticFeedback.vibrate();
+  Future.delayed(const Duration(seconds: 15), () {
+    HapticFeedback.selectionClick();
+  });
 }

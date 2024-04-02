@@ -3,6 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_onboarding_slider/flutter_onboarding_slider.dart';
 import 'package:lottie/lottie.dart';
+import 'package:toastification/toastification.dart';
+import 'package:vibration/vibration.dart';
 import 'package:w3b_app/configs/constants/constant.dart';
 import 'package:w3b_app/configs/routes/navigator.dart';
 import 'package:w3b_app/pages/scan.dart';
@@ -18,7 +20,6 @@ class OnBoarding extends StatefulWidget {
 class _OnBoardingState extends State<OnBoarding> {
   late W3MService _w3mService;
   String address = "";
-  
 
   @override
   void initState() {
@@ -45,12 +46,26 @@ class _OnBoardingState extends State<OnBoarding> {
 
     await _w3mService.init();
     // Subscribe to modal connect event
-   _w3mService.onModalConnect.subscribe((event) {
-    print('address=${event!.session.address}');
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      navigatorDelete(context, const ScanPage());
+    _w3mService.onModalConnect.subscribe((event) {
+      WidgetsBinding.instance.addPostFrameCallback((_) async {
+        print('address=${event!.session.address}');
+        final result = await interactWithContract('${event.session.address}');
+        print(result);
+        print('Type of result: ${result.runtimeType}');
+        if (result[0] == true) {
+          navigatorDelete(context, const ScanPage());
+        } else {
+          Vibration.vibrate(duration: 500, amplitude: 100);
+          toastification.show(
+            type: ToastificationType.error,
+            context: context,
+            style: ToastificationStyle.fillColored,
+            title: const Text("Vous n'etes pas éligible à scanner"),
+            autoCloseDuration: const Duration(seconds: 5),
+          );
+        }
+      });
     });
-  });
   }
 
   @override
@@ -127,10 +142,9 @@ class _OnBoardingState extends State<OnBoarding> {
             ),
           ),
         ],
-      ),  
+      ),
     );
   }
-  
 }
 
 const _chainId = "11155111";

@@ -44,6 +44,9 @@ dependencies:
   lottie: ^3.1.0
   web3dart: ^2.7.3
   http: ^1.2.0
+  quickalert: ^1.1.0
+  toastification: ^1.2.1
+  vibration: ^1.8.4
 
 dev_dependencies:
   flutter_test:
