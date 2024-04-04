@@ -4,13 +4,17 @@ Widget myInput({
   bool readOnly = true,
   bool obscureText = false,
   Widget? suffixIcon,
+  required String prefixText,
+  required TextEditingController controller,
   String? Function(String?)? validator,
   void Function(String?)? onSaved,
 }) {
   return TextFormField(
+    controller: controller,
    readOnly: readOnly,
     obscureText: obscureText,
     decoration: InputDecoration(
+      prefixText: '',
       suffixIcon: suffixIcon,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),

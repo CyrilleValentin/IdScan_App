@@ -1,12 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:w3b_app/configs/constants/constants.dart';
 import 'package:web3dart/web3dart.dart';
-
-const String loti1 = "lotties/loti1.json";
-const String loti2 = "lotties/loti2.json";
-const String abi = "assets/contract_abi.json";
-const String pacifico = "fonts/Pacifico-Regular.ttf";
 
 // Replace YOUR_INFURA_PROJECT_ID with your Infura project ID
 String infuraProjectId = '205071a497c2419685eba87dd2214653';
@@ -26,10 +22,9 @@ Future<String> loadContractABI() async {
 
 
 Future<dynamic> interactWithContract(String address) async {
-  // Chargez l'ABI du contrat intelligent
+  
   String abiString = await loadContractABI();
 
-  // Créez une instance de DeployedContract en utilisant l'ABI et l'adresse du contrat
   final contract = DeployedContract(
     ContractAbi.fromJson(abiString, 'MyContract'),
     EthereumAddress.fromHex('0xef33214bd7dca5fb1a14e631e32a6e2273ff8d1a'),
@@ -49,9 +44,22 @@ final ethClient = Web3Client('https://sepolia.infura.io/v3/$infuraProjectId', cl
   return result;
 }
 
-  void vibrate() {
-  HapticFeedback.vibrate();
-  Future.delayed(const Duration(seconds: 15), () {
-    HapticFeedback.selectionClick();
-  });
+
+Future<bool> checkDocumentValidity(String searchString) async {
+ String abiString = await loadContractABI();
+
+  final contract = DeployedContract(
+    ContractAbi.fromJson(abiString, 'MyContract'),
+    EthereumAddress.fromHex('0xef33214bd7dca5fb1a14e631e32a6e2273ff8d1a'),
+  );
+
+  final result = await ethClient.call(
+    contract: contract,
+    function: contract.function('checkIsValidDocumentId'),
+    params: [searchString],
+  );
+
+  // Traitez le résultat de l'appel de fonction
+  return result[0];
 }
+

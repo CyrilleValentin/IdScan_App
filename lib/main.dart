@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:w3b_app/onBoading/onBoarding.dart';
-import 'package:w3b_app/pages/profile.dart';
 
 
 void main() {
