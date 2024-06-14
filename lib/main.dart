@@ -1,13 +1,9 @@
-
 import 'package:flutter/material.dart';
 import 'package:w3b_app/onBoading/onBoarding.dart';
-
-
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -20,7 +16,6 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home:  const OnBoarding(),
-      
     );
   }
 }

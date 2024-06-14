@@ -70,9 +70,9 @@ class _ScanPageState extends State<ScanPage> {
       setState(() {
         barcode = scanData;
       });
-      final ipfsHash = extractIpfsHash(
-          "https://fuchsia-definite-fowl-804.mypinata.cloud/ipfs/QmTnHQ4B4Seztzenz7QG6jqoqZsPKyGDFBNUFUZBQzdJHf");
-      //final ipfsHash = extractIpfsHash("${barcode?.code}");
+      //final ipfsHash = extractIpfsHash(
+        //  "https://fuchsia-definite-fowl-804.mypinata.cloud/ipfs/QmTnHQ4B4Seztzenz7QG6jqoqZsPKyGDFBNUFUZBQzdJHf");
+      final ipfsHash = extractIpfsHash("${barcode?.code}");
       bool isValid = await checkDocumentValidity(ipfsHash);
       if (isValid) {
         QuickAlert.show(

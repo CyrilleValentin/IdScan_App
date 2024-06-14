@@ -49,7 +49,7 @@ class _OnBoardingState extends State<OnBoarding> {
     // Subscribe to modal connect event
     _w3mService.onModalConnect.subscribe((event) {
       WidgetsBinding.instance.addPostFrameCallback((_) async {
-        print('address=${event!.session.address}');
+       print('address=${event!.session.address}');
         final result = await interactWithContract('${event.session.address}');
         print(result);
         print('Type of result: ${result.runtimeType}');

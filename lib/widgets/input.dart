@@ -14,7 +14,7 @@ Widget myInput({
    readOnly: readOnly,
     obscureText: obscureText,
     decoration: InputDecoration(
-      prefixText: '',
+      prefixText: prefixText,
       suffixIcon: suffixIcon,
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
