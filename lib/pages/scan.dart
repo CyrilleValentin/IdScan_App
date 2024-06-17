@@ -70,11 +70,12 @@ class _ScanPageState extends State<ScanPage> {
       setState(() {
         barcode = scanData;
       });
-      //final ipfsHash = extractIpfsHash(
-        //  "https://fuchsia-definite-fowl-804.mypinata.cloud/ipfs/QmTnHQ4B4Seztzenz7QG6jqoqZsPKyGDFBNUFUZBQzdJHf");
+      await controller.pauseCamera();
       final ipfsHash = extractIpfsHash("${barcode?.code}");
+      print('hash:$ipfsHash');
       bool isValid = await checkDocumentValidity(ipfsHash);
-      if (isValid) {
+      print('reponse:$isValid');
+      if (isValid==true) {
         QuickAlert.show(
           context: context,
           title: 'Succès',
@@ -82,7 +83,7 @@ class _ScanPageState extends State<ScanPage> {
           text: 'Carte Authentique!!',
           confirmBtnText: 'Détails',
           onConfirmBtnTap: () async {
-            final data = await fetchDataFromUrl('https://fuchsia-definite-fowl-804.mypinata.cloud/ipfs/QmTnHQ4B4Seztzenz7QG6jqoqZsPKyGDFBNUFUZBQzdJHf');
+            final data = await fetchDataFromUrl('${barcode?.code}');
             print("response:$data");
            navigatorSimple(context, Profile(data: data));
           },
@@ -104,7 +105,7 @@ class _ScanPageState extends State<ScanPage> {
 
   String extractIpfsHash(String url) {
     final regex =
-        RegExp(r'https://fuchsia-definite-fowl-804.mypinata.cloud/ipfs/(.*)');
+        RegExp('https://fuchsia-definite-fowl-804.mypinata.cloud/ipfs/(.*)');
     final match = regex.firstMatch(url);
     if (match != null && match.groupCount >= 1) {
       return match.group(1)!;
