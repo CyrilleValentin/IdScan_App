@@ -72,9 +72,9 @@ class _ScanPageState extends State<ScanPage> {
       });
       await controller.pauseCamera();
       final ipfsHash = extractIpfsHash("${barcode?.code}");
-      print('hash:$ipfsHash');
+     
       bool isValid = await checkDocumentValidity(ipfsHash);
-      print('reponse:$isValid');
+      
       if (isValid==true) {
         QuickAlert.show(
           context: context,
