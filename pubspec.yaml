@@ -38,7 +38,7 @@ dependencies:
   web3modal_flutter: ^3.1.2
   qr_flutter: ^4.1.0
   path_provider: ^2.1.2
-  barcode_scanner: ^3.6.2
+
   qr_code_scanner: ^1.0.1
   flutter_onboarding_slider: ^1.0.11
   lottie: ^3.1.0
@@ -51,7 +51,8 @@ dependencies:
   iconsax: ^0.0.8
   eva_icons_flutter: ^3.1.0
   intl: ^0.19.0
-  flutter_onboard: ^1.0.4
+  cupertino_onboarding: ^1.2.0
+  modal_bottom_sheet: ^2.1.2
  
 
 dev_dependencies:
@@ -74,6 +75,7 @@ flutter:
   assets:
     - lotties/
     - assets/
+    - images/
     
   #   - images/a_dot_ham.jpeg
 

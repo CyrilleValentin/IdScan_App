@@ -41,14 +41,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  barcode_scanner:
-    dependency: "direct main"
-    description:
-      name: barcode_scanner
-      sha256: "49118b73f51663674ebe1e72ee561a2fadf0916a86340e20753165ffffd81f5b"
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.6.2"
   base_x:
     dependency: transitive
     description:
@@ -161,6 +153,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.8"
+  cupertino_onboarding:
+    dependency: "direct main"
+    description:
+      name: cupertino_onboarding
+      sha256: "948327610ba9204cde7d3f9a4f7fa2c5571272702a8c8c4d9ae0a2ec022393f1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
   custom_sliding_segmented_control:
     dependency: transitive
     description:
@@ -185,6 +185,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
+  dots_indicator:
+    dependency: transitive
+    description:
+      name: dots_indicator
+      sha256: f1599baa429936ba87f06ae5f2adc920a367b16d08f74db58c3d0f6e93bcdb5c
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.2"
   ed25519_edwards:
     dependency: transitive
     description:
@@ -286,14 +294,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
-  flutter_onboard:
-    dependency: "direct main"
-    description:
-      name: flutter_onboard
-      sha256: e8ed3f2cf8e1a92f35c148fd0fcfe401905a9298405a609f198a3f59108c55b7
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.4"
   flutter_onboarding_slider:
     dependency: "direct main"
     description:
@@ -416,14 +416,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.0"
-  logging:
-    dependency: transitive
-    description:
-      name: logging
-      sha256: "623a88c9594aa774443aa3eb2d41807a48486b5613e67599fb4c41c0ad47c340"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   lottie:
     dependency: "direct main"
     description:
@@ -456,6 +448,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.10.0"
+  modal_bottom_sheet:
+    dependency: "direct main"
+    description:
+      name: modal_bottom_sheet
+      sha256: ef533916a2c3089571c32bd34e410faca77a6849a3f28f748e0794525c5658a0
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.2"
   nested:
     dependency: transitive
     description:

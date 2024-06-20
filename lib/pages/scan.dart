@@ -44,9 +44,6 @@ class _ScanPageState extends State<ScanPage> {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-      appBar: AppBar(
-        title: const Text('Qr code Scanner'),
-      ),
       body: Stack(
         alignment: Alignment.center,
         children: <Widget>[
@@ -78,9 +75,9 @@ class _ScanPageState extends State<ScanPage> {
       if (isValid==true) {
         QuickAlert.show(
           context: context,
-          title: 'Succès',
+          title: 'Success',
           type: QuickAlertType.success,
-          text: 'Carte Authentique!!',
+          text: 'Authentic Card!!',
           confirmBtnText: 'Détails',
           onConfirmBtnTap: () async {
             final data = await fetchDataFromUrl('${barcode?.code}');
@@ -92,9 +89,9 @@ class _ScanPageState extends State<ScanPage> {
         QuickAlert.show(
           context: context,
           type: QuickAlertType.error,
-          title: 'Echec...',
-          text: 'Carte non Authentique!!',
-          confirmBtnText: 'Réessayer',
+          title: 'Failed...',
+          text: ' No Authentic Card!!',
+          confirmBtnText: 'try Again',
           onConfirmBtnTap: () {
             navigatorDelete(context, const ScanPage());
           },

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:w3b_app/onBoading/onBoarding.dart';
+import 'onBoading/onboard.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
@@ -10,12 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  const OnBoarding(),
+      home:   const OnboardingOverview()
     );
   }
 }
